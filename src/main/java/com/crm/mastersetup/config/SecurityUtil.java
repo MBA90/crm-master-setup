@@ -1,6 +1,6 @@
-package com.crm.account.config;
+package com.crm.mastersetup.config;
 
-import com.crm.account.config.UserPrincipal;
+import com.crm.mastersetup.config.UserPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public final class SecurityUtil {

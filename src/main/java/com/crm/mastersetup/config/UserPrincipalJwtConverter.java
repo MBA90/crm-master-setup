@@ -1,7 +1,7 @@
-package com.crm.account.config;
+package com.crm.mastersetup.config;
 
-import com.crm.account.config.UserPrincipal;
-import com.crm.account.config.UserPrincipalAuthenticationToken;
+import com.crm.mastersetup.config.UserPrincipal;
+import com.crm.mastersetup.config.UserPrincipalAuthenticationToken;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
