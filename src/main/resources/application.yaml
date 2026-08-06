@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: crm-account
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crm
+    username: crm_master_setup
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      auto-commit: false
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: crm_master_setup
+
+  liquibase:
+    change-log: classpath:db/changelog/master.xml
+    default-schema: crm_master_setup
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/crm-realm
+
+server:
+  port: 8203
+
+logging:
+  level:
+    org.hibernate.orm.connections.pooling: warn
