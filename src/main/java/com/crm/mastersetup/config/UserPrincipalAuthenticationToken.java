@@ -1,6 +1,6 @@
-package com.crm.account.config;
+package com.crm.mastersetup.config;
 
-import com.crm.account.config.UserPrincipal;
+import com.crm.mastersetup.config.UserPrincipal;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.Jwt;
