@@ -1,4 +1,4 @@
-# CRM ACCOUNT Service
+# CRM Master Setup Service
 
 A Spring Boot microservice for managing crm master setup data.
 
