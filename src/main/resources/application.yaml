@@ -1,6 +1,6 @@
 spring:
   application:
-    name: crm-account
+    name: crm-master-setup
 
   datasource:
     url: jdbc:postgresql://localhost:5432/crm
