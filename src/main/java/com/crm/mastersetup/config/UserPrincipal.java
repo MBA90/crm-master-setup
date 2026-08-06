@@ -1,4 +1,4 @@
-package com.crm.account.config;
+package com.crm.mastersetup.config;
 
 import java.util.UUID;
 
