@@ -7,4 +7,6 @@
 
     <include file="db/changelog/changes/001-create-country.xml"/>
     <include file="db/changelog/changes/002-seed-countries.xml"/>
+    <include file="db/changelog/changes/004-create-state.xml"/>
+    <include file="db/changelog/changes/005-seed-states.xml"/>
 </databaseChangeLog>
