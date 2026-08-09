@@ -27,4 +27,9 @@ public class CountryServiceImpl implements CountryService {
                 .map(countryMapper::toDTO)
                 .toList();
     }
+
+    @Override
+    public CountryDTO findCountryByIso2(String iso2) {
+        return countryMapper.toDTO(countryRepository.findByIso2(iso2));
+    }
 }

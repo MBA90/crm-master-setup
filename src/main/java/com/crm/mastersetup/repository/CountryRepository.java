@@ -8,4 +8,6 @@ import java.util.List;
 public interface CountryRepository extends JpaRepository<Country, Integer> {
 
     List<Country> findAllByOrderByNameAsc();
+
+    Country findByIso2(String iso2);
 }

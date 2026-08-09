@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="004-create-states" author="crm">
+        <createTable tableName="states">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="INT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_states_country"
+                             referencedTableName="countries"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="iso2" type="VARCHAR(10)"/>
+            <column name="iso3" type="VARCHAR(10)"/>
+            <column name="latitude" type="DECIMAL(10,8)"/>
+            <column name="longitude" type="DECIMAL(11,8)"/>
+        </createTable>
+
+        <createIndex tableName="states" indexName="idx_states_country">
+            <column name="country_id"/>
+        </createIndex>
+
+        <createIndex tableName="states" indexName="idx_states_country_name">
+            <column name="country_id"/>
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
