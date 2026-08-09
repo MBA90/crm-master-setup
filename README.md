@@ -77,7 +77,7 @@ apply the changelog on the next application start.
 ./mvnw test
 ```
 
-The service starts on http://localhost:8203.
+The service starts on http://localhost:8501.
 
 ## Docker
 
@@ -92,7 +92,7 @@ docker build -t crm-master-setup .
 Run the container, mapping the service's port (8202):
 
 ```bash
-docker run --rm -p 8203:8203 crm-master-setup
+docker run --rm -p 8501:8501 crm-master-setup
 ```
 
 ## 🔐 Security

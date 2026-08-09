@@ -34,7 +34,7 @@ spring:
           issuer-uri: http://localhost:8180/realms/crm-realm
 
 server:
-  port: 8203
+  port: 8501
 
 logging:
   level:

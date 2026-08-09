@@ -1,12 +1,13 @@
 package com.crm.mastersetup.service;
 
 import com.crm.mastersetup.dto.CountryDTO;
+import com.crm.mastersetup.dto.StateDTO;
 
 import java.util.List;
 
-public interface CountryService {
+public interface LocationFacade {
 
     List<CountryDTO> listCountries();
 
-    CountryDTO findCountryByIso2(String iso2);
+    List<StateDTO> listStatesByCountry(String countryCodeIso2);
 }

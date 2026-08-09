@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- db/changelog/data/states.csv header: id,name,country_id,country_code,iso2,iso3,latitude,longitude
+         country_code is skipped (derivable from countries.iso2 via country_id);
+         iso2 is the state code and iso3 is the ISO 3166-2 subdivision code. -->
+    <changeSet id="005-seed-states" author="crm">
+        <loadData
+                tableName="states"
+                file="db/changelog/data/states.csv"
+                relativeToChangelogFile="false"
+                encoding="UTF-8"
+                separator=","
+                quotchar="&quot;">
+            <column header="id" name="id" type="NUMERIC"/>
+            <column header="name" name="name" type="STRING"/>
+            <column header="country_id" name="country_id" type="NUMERIC"/>
+            <column header="country_code" type="SKIP"/>
+            <column header="iso2" name="iso2" type="STRING"/>
+            <column header="iso3" name="iso3" type="STRING"/>
+            <column header="latitude" name="latitude" type="NUMERIC"/>
+            <column header="longitude" name="longitude" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
