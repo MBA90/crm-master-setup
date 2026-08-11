@@ -39,7 +39,7 @@ spring:
     type: redis
     redis:
       time-to-live: 24h
-      key-prefix: "crm-master-setup:"
+      key-prefix: "crm-master-setup::"
       use-key-prefix: true
       cache-null-values: false
 
