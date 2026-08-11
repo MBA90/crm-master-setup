@@ -7,6 +7,7 @@ A Spring Boot microservice for managing crm master setup data.
 - Java 21
 - Spring Boot 3.5.15 (Web, Data JPA, Validation, Security, OAuth2 Resource Server)
 - PostgreSQL (`postgresql` JDBC driver)
+- Redis
 - Liquibase (schema migrations)
 - MapStruct 1.5.5 (entity/DTO mapping)
 - Lombok
@@ -18,7 +19,7 @@ A Spring Boot microservice for managing crm master setup data.
 
 - Java 21+
 - Maven 3.9+ (or use the included Maven Wrapper)
-- Docker & Docker Compose (for the PostgreSQL database)
+- Docker & Docker Compose (for the PostgreSQL database and the Redis cache)
 
 ### Configuration
 
@@ -38,7 +39,7 @@ owned entirely by Liquibase.
 
 ### Database Setup
 
-A `docker-compose.yml` at the project root starts a PostgreSQL 16 instance
+A `docker-compose/postgress/docker-compose.yml` at the project root starts a PostgreSQL 16 instance
 (container `postgres_db`) with a superuser `admin` / `admin` and a `crm`
 database, exposed on port `5432`:
 
@@ -63,6 +64,16 @@ Run them against the `crm` database.
 
 With the role and schema in place, Liquibase can create its tracking tables and
 apply the changelog on the next application start.
+
+### Redis Setup
+
+`docker-compose/redis/docker-compose.yml` starts Redis 7 (container `redis`,
+password `admin`) on `127.0.0.1:6379`, plus RedisInsight on
+http://localhost:5540 for browsing keys:
+
+```bash
+docker compose -f docker-compose/redis/docker-compose.yml up -d
+```
 
 ### Build & Run
 
