@@ -27,6 +27,22 @@ spring:
     change-log: classpath:db/changelog/master.xml
     default-schema: crm_master_setup
 
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: admin
+      timeout: 2s
+      connect-timeout: 2s
+
+  cache:
+    type: redis
+    redis:
+      time-to-live: 24h
+      key-prefix: "crm-master-setup:"
+      use-key-prefix: true
+      cache-null-values: false
+
   security:
     oauth2:
       resourceserver:
