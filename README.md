@@ -68,12 +68,45 @@ apply the changelog on the next application start.
 ### Redis Setup
 
 `docker-compose/redis/docker-compose.yml` starts Redis 7 (container `redis`,
-password `admin`) on `127.0.0.1:6379`, plus RedisInsight on
-http://localhost:5540 for browsing keys:
+password `admin`, AOF persistence on a named volume) on `127.0.0.1:6379`, plus
+RedisInsight on http://localhost:5540 for browsing keys:
 
 ```bash
 docker compose -f docker-compose/redis/docker-compose.yml up -d
 ```
+
+#### Connection
+
+```yaml
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: admin
+      timeout: 2s
+      connect-timeout: 2s
+```
+
+#### Cache defaults
+
+```yaml
+spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 24h
+      key-prefix: "crm-master-setup::"
+      use-key-prefix: true
+      cache-null-values: false
+```
+
+### Cache configuration classes
+
+| Class                      | Job                                                                                                                                                                                                                    |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CacheConfig`              | `@EnableCaching` entry point. Builds a `RedisCacheConfiguration` from the `spring.cache.redis.*` properties above, then registers per-cache overrides with a `RedisCacheManagerBuilderCustomizer`                        | |
+| `LoggingCacheErrorHandler` | `CacheErrorHandler` that logs get/put/evict/clear failures at `warn` instead of rethrowing — a Redis outage degrades to a database read rather than a 500                                                                |
 
 ### Build & Run
 
