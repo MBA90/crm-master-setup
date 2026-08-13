@@ -1,6 +1,6 @@
 package com.crm.mastersetup.web.rest;
 
-import com.crm.mastersetup.config.SecurityRoles;
+import com.crm.lib.security.SecurityRoles;
 import com.crm.mastersetup.dto.CountryDTO;
 import com.crm.mastersetup.dto.StateDTO;
 import com.crm.mastersetup.service.LocationFacade;
