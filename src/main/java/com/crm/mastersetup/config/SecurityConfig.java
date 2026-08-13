@@ -1,6 +1,6 @@
 package com.crm.mastersetup.config;
 
-import com.crm.mastersetup.config.UserPrincipalJwtConverter;
+import com.crm.lib.security.UserPrincipalJwtConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
